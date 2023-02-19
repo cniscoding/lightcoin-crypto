@@ -1,19 +1,19 @@
 // let balance = 500.00;
 class Transaction {
-  constructor( amount, account) {
+  constructor(amount, account) {
     this.amount = amount;
     this.account = account;
   }
   commit() {
     // checks balance to see if transaction is allowed
-    if(!this.isAllowed()){
-      return false
+    if (!this.isAllowed()) {
+      return false;
     }
     //keep track of the time of the transaction
     this.time = new Date();
     // add the transaction to the account
-    this.account.addTransaction(this)
-    return true
+    this.account.addTransaction(this);
+    return true;
   }
 }
 
@@ -38,7 +38,7 @@ class Withdrawal extends Transaction {
   }
   // check balance to allow or not
   isAllowed() {
-    return(this.account.balance - this.amount >=0)
+    return (this.account.balance - this.amount >= 0);
   }
 }
 
